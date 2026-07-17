@@ -116,23 +116,23 @@ The codebase represents a masterclass in separating a heavy heuristic backend fr
 graph TD;
     subgraph FRONTEND [ELECTRON / REACT LAYER]
         direction TB
-        Z[jarvis.store.ts<br>(Zustand Monolith)] --> FM[Framer Motion<br>Animation Engine]
-        Z --> DOM[Glassmorphic DOM]
-        Mic[navigator.mediaDevices] --> VAD_UI[Waveform Visualizer]
+        Z["jarvis.store.ts<br>(Zustand Monolith)"] --> FM["Framer Motion<br>Animation Engine"]
+        Z --> DOM["Glassmorphic DOM"]
+        Mic["navigator.mediaDevices"] --> VAD_UI["Waveform Visualizer"]
     end
 
     subgraph TRANSPORT [0-LATENCY BRIDGE]
         direction LR
-        WS{{WebSockets via FastAPI}}
+        WS{{"WebSockets via FastAPI"}}
     end
 
     subgraph BACKEND [PYTHON FASTAPI LAYER]
         direction TB
-        ORB[Orchestrator Core]
-        MEM[(ChromaDB + SQLite)]
-        VOICE[faster-whisper STT<br>edge-tts Engine]
-        TOOLS[Python win32com<br>Local Sub-Agents]
-        LLM[Local LLMs / Groq API]
+        ORB["Orchestrator Core"]
+        MEM["(ChromaDB + SQLite)"]
+        VOICE["faster-whisper STT<br>edge-tts Engine"]
+        TOOLS["Python win32com<br>Local Sub-Agents"]
+        LLM["Local LLMs / Groq API"]
         
         ORB <--> MEM
         ORB <--> VOICE
@@ -140,8 +140,8 @@ graph TD;
         ORB <--> LLM
     end
 
-    Z <==> |JSON Payloads / Tokens| WS
-    WS <==> |Async Streams| ORB
+    Z <==> |"JSON Payloads / Tokens"| WS
+    WS <==> |"Async Streams"| ORB
 ```
 
 ### `[ FRONTEND // ZUSTAND & ELECTRON ]`
