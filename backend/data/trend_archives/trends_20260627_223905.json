@@ -1,0 +1,98 @@
+{
+  "style_rules": {
+    "font_title": "Montserrat",
+    "font_body": "Inter",
+    "color_background": "#0a0e1a",
+    "color_accent": "#00e5ff",
+    "color_secondary": "#10b981",
+    "color_text": "#e0e0e0",
+    "gradient_start": "#0000ff",
+    "gradient_end": "#00ffff",
+    "layout_preference": "glassmorphic",
+    "transition_style": "morph",
+    "visual_accent": "glassmorphism",
+    "source_platforms": [
+      "Reddit",
+      "YouTube",
+      "Twitter/X",
+      "Instagram",
+      "Threads",
+      "Pinterest",
+      "Dribbble/Behance"
+    ],
+    "trend_confidence": 0.8,
+    "last_updated": "2026-06-27T22:39:05.468901",
+    "scrape_stats": {
+      "reddit": {
+        "queries": 5,
+        "hits": 0
+      },
+      "youtube": {
+        "queries": 5,
+        "hits": 0
+      },
+      "twitter_x": {
+        "queries": 4,
+        "hits": 0
+      },
+      "instagram": {
+        "queries": 3,
+        "hits": 0
+      },
+      "threads": {
+        "queries": 2,
+        "hits": 0
+      },
+      "pinterest": {
+        "queries": 3,
+        "hits": 0
+      },
+      "dribbble_behance": {
+        "queries": 3,
+        "hits": 0
+      },
+      "design_blogs": {
+        "queries": 6,
+        "hits": 3
+      }
+    }
+  },
+  "platform_stats": {
+    "reddit": {
+      "queries": 5,
+      "hits": 0
+    },
+    "youtube": {
+      "queries": 5,
+      "hits": 0
+    },
+    "twitter_x": {
+      "queries": 4,
+      "hits": 0
+    },
+    "instagram": {
+      "queries": 3,
+      "hits": 0
+    },
+    "threads": {
+      "queries": 2,
+      "hits": 0
+    },
+    "pinterest": {
+      "queries": 3,
+      "hits": 0
+    },
+    "dribbble_behance": {
+      "queries": 3,
+      "hits": 0
+    },
+    "design_blogs": {
+      "queries": 6,
+      "hits": 3
+    }
+  },
+  "total_hits": 3,
+  "scrape_duration_seconds": 78.37,
+  "timestamp": "2026-06-27T22:39:05.510317",
+  "report_preview": "# Presentation Design Trends 2026: Executive Summary\n---\n\nThe current state of presentation design is centered around creating visually stunning and engaging slides that effectively communicate complex ideas. Based on scraped data from multiple design platforms and social media, we've identified the dominant style trends for 2026.\n\n## Color Palettes\nThe most recommended color palettes for 2026 are:\n\n* Primary background: `#0a0e1a` (a deep, rich blue)\n* Accent color: `#00e5ff` (a vibrant, electri"
+}

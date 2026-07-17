@@ -1,0 +1,30 @@
+{
+    "font_title": "Poppins",
+    "font_body": "Inter",
+    "color_background": "#1a1d23",
+    "color_accent": "#34a8ff",
+    "color_secondary": "#8b9467",
+    "color_text": "#ffffff",
+    "gradient_start": "#2b2f3b",
+    "gradient_end": "#1a1d23",
+    "layout_preference": "viral-editorial",
+    "transition_style": "morph",
+    "visual_accent": "3d-perspective-rotator",
+    "last_updated": "2026-06-29T01:04:50.154575",
+    "reference_videos": [
+        "https://youtu.be/RJDpRUKwaNo?si=0wy13Tuw61LpkkiL",
+        "https://youtu.be/1itRFTf_OkA?si=1HzAkX_rtoi1tCBe",
+        "https://youtu.be/NZWyn-APYRU?si=xjjb9FM9ZNWqAAYQ",
+        "https://youtu.be/HvCcEMXKwpQ?si=PhJKkv5gyfb9kjmh",
+        "https://youtu.be/qYEjY_03xFE?si=1OVFlXD5XZXdzqEM",
+        "https://youtu.be/lvPUZswB3d4?si=0tdLV2XNtWfLZP7w",
+        "https://youtu.be/sxRplBFGMHg?si=OwMyXDB4HXbdpLO3",
+        "https://youtu.be/lk9FonEucZc?si=BVLlKuwELDPCh8OO",
+        "https://youtu.be/JJ0TT98hCFk?si=kaZ9iTpAEOgJgWrr",
+        "https://youtu.be/8ekBOCJYzrQ?si=-fLzhFePiIxIt-Jj",
+        "https://youtu.be/v5TkaI8BEkw?si=5FoEz6sRCy2P2BeQ",
+        "https://youtu.be/aQlTPUvVH5E?si=40H_D-Hkw7plK84F",
+        "https://youtu.be/Y75ZpL5w7xE?si=GHLtEt03UVr89-bf",
+        "https://youtu.be/MFwDZ3460Fc?si=X4y4-ItOhdCFCZSy"
+    ]
+}

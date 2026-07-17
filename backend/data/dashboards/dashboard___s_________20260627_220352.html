@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astryx Dashboard</title>
+    <style>
+        /* Global Styles */
+        * {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0f;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #121212;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: #00e5ff;
+        }
+        .header span {
+            font-size: 16px;
+            color: #a855f7;
+        }
+        .kpi-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #121212;
+            border-radius: 10px;
+            margin: 10px;
+            width: calc(33.33% - 10px);
+        }
+        .kpi-card h2 {
+            font-size: 24px;
+            color: #00e5ff;
+        }
+        .kpi-card span {
+            font-size: 18px;
+            color: #a855f7;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .chart {
+            width: calc(50% - 10px);
+            height: 200px;
+            margin: 10px;
+        }
+        .chart canvas {
+            width: 100%;
+            height: 100%;
+        }
+        /* Animation Styles */
+        .animated-counter {
+            animation: animate-counter 2s ease;
+        }
+        @keyframes animate-counter {
+            from {
+                transform: scale(1);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Astryx Dashboard</h1>
+            <span>2023-06-27 14:30:00</span>
+        </div>
+        <div class="kpi-card">
+            <h2>Users</h2>
+            <span class="animated-counter">1,234</span>
+        </div>
+        <div class="kpi-card">
+            <h2>Orders</h2>
+            <span class="animated-counter">8,765</span>
+        </div>
+        <div class="kpi-card">
+            <h2>Revenue</h2>
+            <span class="animated-counter">$12,345</span>
+        </div>
+        <div class="kpi-card">
+            <h2>Customers</h2>
+            <span class="animated-counter">9,876</span>
+        </div>
+        <div class="chart-container">
+            <canvas class="chart" id="chart1"></canvas>
+            <canvas class="chart" id="chart2"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Mock Data
+        const data1 = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Users',
+                data: [1000, 1200, 1500, 1800, 2000],
+                backgroundColor: 'rgba(0, 255, 255, 0.5)',
+                borderColor: 'rgba(0, 255, 255, 1)',
+                borderWidth: 1
+            }]
+        };
+        const data2 = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            datasets: [{
+                label: 'Revenue',
+                data: [10000, 12000, 15000, 18000, 20000],
+                backgroundColor: 'rgba(169, 85, 247, 0.5)',
+                borderColor: 'rgba(169, 85, 247, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Chart.js
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: data1,
+            options: {
+                title: {
+                    display: true,
+                    text: 'Users'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        new Chart(ctx2, {
+            type: 'bar',
+            data: data2,
+            options: {
+                title: {
+                    display: true,
+                    text: 'Revenue'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // Auto-refresh
+        setInterval(() => {
+            document.location.reload(true);
+        }, 30000);
+    </script>
+</body>
+</html>

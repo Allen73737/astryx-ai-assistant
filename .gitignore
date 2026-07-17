@@ -1,0 +1,17 @@
+node_modules/
+dist/
+out/
+.env
+.DS_Store
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+nul

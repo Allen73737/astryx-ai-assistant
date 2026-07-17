@@ -1,0 +1,45 @@
+{
+  "name": "jarvis-x",
+  "version": "1.0.0",
+  "description": "JARVIS-X — Local AI Desktop Assistant",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit",
+    "start:backend": "cd backend && .venv\\Scripts\\python -m uvicorn main:app --host 0.0.0.0 --port 8002 --reload",
+    "start:all": "concurrently \"npm run start:backend\" \"npm run dev\""
+  },
+  "keywords": [
+    "jarvis",
+    "ai",
+    "assistant",
+    "electron",
+    "local"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.35",
+    "framer-motion": "^12.12.1",
+    "gsap": "^3.13.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/utils": "^4.0.0",
+    "@tailwindcss/vite": "^4.1.7",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.2",
+    "concurrently": "^9.2.1",
+    "electron": "^36.3.1",
+    "electron-vite": "^3.1.0",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

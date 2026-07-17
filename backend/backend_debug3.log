@@ -1,0 +1,113 @@
+INFO:     Started server process [12396]
+INFO:     Waiting for application startup.
+[info     ] jarvis_backend_starting        port=8002
+[info     ] local_models_dir_found         path=C:\Users\allen\.lmstudio\models\jarvis-fast
+[info     ] preloading_llm_model           model=qwen2.5-0.5b-instruct-q4_k_m
+[info     ] initializing_vector_db         path=C:\My_Project\Jarvis\backend\data\chroma
+[info     ] vector_db_ready                nodes=0
+[info     ] voice_engine_started           mode=browser_audio_capture
+[info     ] proactive_monitor_started     
+[info     ] jarvis_backend_ready          
+[info     ] model_swap_start               from_model= to_model=qwen2.5-0.5b-instruct-q4_k_m
+[info     ] loading_gguf                   path=C:\Users\allen\.lmstudio\models\jarvis-fast\qwen2.5-0.5b-instruct-q4_k_m.gguf
+llama_context: n_ctx_seq (4096) < n_ctx_train (32768) -- the full capacity of the model will not be utilized
+[info     ] model_swap_complete            model=qwen2.5-0.5b-instruct-q4_k_m
+[info     ] ws_disconnected                total=2
+INFO:     connection closed
+INFO:     127.0.0.1:55433 - "WebSocket /ws" [accepted]
+[info     ] ws_connected                   total=3
+INFO:     connection open
+[info     ] ws_disconnected                total=2
+INFO:     connection closed
+INFO:     127.0.0.1:63012 - "WebSocket /ws" [accepted]
+[info     ] ws_connected                   total=3
+INFO:     connection open
+INFO:     127.0.0.1:55066 - "WebSocket /ws" [accepted]
+[info     ] ws_connected                   total=4
+INFO:     connection open
+INFO:     127.0.0.1:55069 - "WebSocket /ws" [accepted]
+[info     ] ws_connected                   total=5
+INFO:     connection open
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] tts_playback_complete         
+[info     ] conversation_mode_started     
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     ] clap_detected_from_browser    
+[info     ] jarvis_activating             
+[info     ] wake_word_detected             word=ASTRYX
+[info     ] tts_generating                 text='Yes, sir?'
+[info     

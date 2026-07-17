@@ -1,0 +1,41 @@
+# ASTRYX PowerPoint Design Manual — Learned from 14 YouTube References
+**Generated**: 2026-06-29 01:04:50
+**Analyzed URLs**: 14 videos
+
+---
+
+# Design Manual for Ultra-Premium and Professional Slides
+## Introduction
+This manual provides key styles, guidelines, and tricks to make slides look ultra-premium and professional. It summarizes the design ideas, color palettes, layout types, transitions, and graphic embellishments taught in the 14 YouTube videos.
+
+## Key Styles and Guidelines
+* Use a dark theme background with a vibrant neon accent color.
+* Choose a clean and modern font, such as Poppins or Montserrat, for titles.
+* Select a clear and readable font, such as Inter or Open Sans, for body text.
+* Apply a background gradient to add depth and visual interest.
+* Use a 3D perspective rotator as a visual accent to create a dynamic and engaging effect.
+
+## Platform-Specific Breakthroughs
+* Utilize the Morph transition to create seamless and smooth animations.
+* Apply the Push transition to create a cinematic and interactive effect.
+* Use the Zoom animation to draw attention to specific elements on the slide.
+
+## Animation Rules
+* Name shapes with a specific prefix (e.g., !!MorphBgCircle) to morph correctly.
+* Use the Corner Rotator to create a rotating effect.
+* Apply the 3D perspective rotator to create a dynamic and engaging effect.
+
+## Layout Rules
+* Use a carousel layout to showcase multiple elements in a single slide.
+* Apply a split-screen layout to compare and contrast different elements.
+* Utilize a grid layout to organize and structure content in a clear and concise manner.
+
+## Color Palettes
+* Use a dark theme background with a vibrant neon accent color.
+* Apply a background gradient to add depth and visual interest.
+* Select a secondary contrast color to create visual hierarchy and balance.
+
+## Graphic Embellishments
+* Use 3D models and animations to create a dynamic and engaging effect.
+* Apply graphic shapes and icons to create visual interest and illustrate key points.
+* Utilize images and textures to add depth and context to the slide.

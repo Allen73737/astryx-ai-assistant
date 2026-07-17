@@ -1,0 +1,45 @@
+# JARVIS-X LM Studio Model Configuration
+{
+  "models": {
+    "gemma-4-e4b": {
+      "name": "Gemma 4 E4B",
+      "role": "conversation",
+      "description": "Primary conversation and reasoning model",
+      "quantization": "Q4_K_M",
+      "default": true
+    },
+    "qwen3": {
+      "name": "Qwen 3",
+      "role": "coding",
+      "description": "Coding, tool execution, and browser automation",
+      "quantization": "Q4_K_M",
+      "install_note": "Install in LM Studio: Search 'qwen3' → download Q4_K_M variant"
+    },
+    "phi-4-mini": {
+      "name": "Phi-4 Mini",
+      "role": "router",
+      "description": "Fast intent classification (<50ms target)",
+      "quantization": "Q4_K_M",
+      "install_note": "Install in LM Studio: Search 'phi-4-mini' → download Q4_K_M variant"
+    },
+    "qwen2.5-vl": {
+      "name": "Qwen 2.5 VL",
+      "role": "vision",
+      "description": "Screen understanding, webcam analysis, OCR",
+      "quantization": "Q4_K_M",
+      "install_note": "Install in LM Studio: Search 'qwen2.5-vl' → download Q4_K_M variant"
+    },
+    "nomic-embed-text": {
+      "name": "Nomic Embed Text",
+      "role": "embeddings",
+      "description": "Text embeddings for vector memory",
+      "quantization": "default",
+      "install_note": "Install in LM Studio: Search 'nomic-embed-text' → download default variant"
+    }
+  },
+  "swap_config": {
+    "cooldown_seconds": 30,
+    "timeout_seconds": 30,
+    "default_model": "gemma-4-e4b"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "style_rules": {
+    "font_title": "Montserrat",
+    "font_body": "Inter",
+    "color_background": "#0a0e1a",
+    "color_accent": "#00e5ff",
+    "color_secondary": "#ff3366",
+    "color_text": "#e0e0e0",
+    "gradient_start": "#00e5ff",
+    "gradient_end": "#0059ff",
+    "layout_preference": "minimalist",
+    "transition_style": "morph",
+    "visual_accent": "gradient-mesh",
+    "source_platforms": [
+      "YouTube",
+      "Instagram",
+      "Dribbble",
+      "Behance"
+    ],
+    "trend_confidence": 0.8,
+    "last_updated": "2026-06-27T22:59:43.231999",
+    "scrape_stats": {
+      "reddit": {
+        "queries": 5,
+        "hits": 0
+      },
+      "youtube": {
+        "queries": 5,
+        "hits": 0
+      },
+      "twitter_x": {
+        "queries": 4,
+        "hits": 0
+      },
+      "instagram": {
+        "queries": 3,
+        "hits": 0
+      },
+      "threads": {
+        "queries": 2,
+        "hits": 0
+      },
+      "pinterest": {
+        "queries": 3,
+        "hits": 0
+      },
+      "dribbble_behance": {
+        "queries": 3,
+        "hits": 0
+      },
+      "design_blogs": {
+        "queries": 6,
+        "hits": 2
+      }
+    }
+  },
+  "platform_stats": {
+    "reddit": {
+      "queries": 5,
+      "hits": 0
+    },
+    "youtube": {
+      "queries": 5,
+      "hits": 0
+    },
+    "twitter_x": {
+      "queries": 4,
+      "hits": 0
+    },
+    "instagram": {
+      "queries": 3,
+      "hits": 0
+    },
+    "threads": {
+      "queries": 2,
+      "hits": 0
+    },
+    "pinterest": {
+      "queries": 3,
+      "hits": 0
+    },
+    "dribbble_behance": {
+      "queries": 3,
+      "hits": 0
+    },
+    "design_blogs": {
+      "queries": 6,
+      "hits": 2
+    }
+  },
+  "total_hits": 2,
+  "scrape_duration_seconds": 367.1,
+  "timestamp": "2026-06-27T22:59:43.270056",
+  "report_preview": "# Presentation Design Trend Report 2026\n## Executive Summary\n\nThe current state of presentation design is characterized by a minimalist approach, with a focus on clean typography, subtle color palettes, and sophisticated layout paradigms. The trend towards minimalism is driven by the need for clarity and ease of comprehension in complex information presentation.\n\n## Platform-by-Platform Breakdown\n\n### YouTube\n\n* Color palettes: Dark tech (#0a0e1a, #333333)\n* Typography: Montserrat for headings, "
+}

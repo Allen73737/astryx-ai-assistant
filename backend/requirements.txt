@@ -1,0 +1,44 @@
+# JARVIS-X Backend Dependencies
+# Core
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+websockets>=15.0.0
+pydantic>=2.11.0
+pydantic-settings>=2.9.0
+
+# AI / LLM
+openai>=1.80.0
+llama-cpp-python>=0.3.23
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+
+# Memory
+chromadb>=1.0.0
+aiosqlite>=0.21.0
+
+# Voice
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.14
+faster-whisper>=1.0.0
+edge-tts>=7.0.0
+pygame>=2.5.0
+
+# Data
+httpx>=0.28.0
+python-multipart>=0.0.20
+
+# Utils
+structlog>=25.1.0
+psutil>=7.0.0
+watchdog>=3.0.0
+networkx>=3.1
+pywinauto>=0.6.8
+keyring>=24.0.0
+cryptography>=41.0.0
+send2trash>=1.8.0
+pyautogui>=0.9.54
+pytesseract>=0.3.10
+geocoder>=1.38.1
+yfinance>=0.2.38
+matplotlib>=3.8.0
+opencv-python>=4.9.0.80
+pywin32>=306

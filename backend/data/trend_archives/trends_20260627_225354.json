@@ -1,0 +1,99 @@
+{
+  "style_rules": {
+    "font_title": "Montserrat",
+    "font_body": "Inter",
+    "color_background": "#0a0e1a",
+    "color_accent": "#00e5ff",
+    "color_secondary": "#ff3366",
+    "color_text": "#e0e0e0",
+    "gradient_start": "#0047ab",
+    "gradient_end": "#ff69b4",
+    "layout_preference": "glassmorphic",
+    "transition_style": "morph",
+    "visual_accent": "glassmorphism",
+    "source_platforms": [
+      "reddit",
+      "youtube",
+      "twitter_x",
+      "instagram",
+      "threads",
+      "pinterest",
+      "dribbble_behance",
+      "design_blogs"
+    ],
+    "trend_confidence": 0.85,
+    "last_updated": "2026-06-27T22:53:54.777107",
+    "scrape_stats": {
+      "reddit": {
+        "queries": 5,
+        "hits": 0
+      },
+      "youtube": {
+        "queries": 5,
+        "hits": 0
+      },
+      "twitter_x": {
+        "queries": 4,
+        "hits": 0
+      },
+      "instagram": {
+        "queries": 3,
+        "hits": 0
+      },
+      "threads": {
+        "queries": 2,
+        "hits": 0
+      },
+      "pinterest": {
+        "queries": 3,
+        "hits": 0
+      },
+      "dribbble_behance": {
+        "queries": 3,
+        "hits": 0
+      },
+      "design_blogs": {
+        "queries": 6,
+        "hits": 4
+      }
+    }
+  },
+  "platform_stats": {
+    "reddit": {
+      "queries": 5,
+      "hits": 0
+    },
+    "youtube": {
+      "queries": 5,
+      "hits": 0
+    },
+    "twitter_x": {
+      "queries": 4,
+      "hits": 0
+    },
+    "instagram": {
+      "queries": 3,
+      "hits": 0
+    },
+    "threads": {
+      "queries": 2,
+      "hits": 0
+    },
+    "pinterest": {
+      "queries": 3,
+      "hits": 0
+    },
+    "dribbble_behance": {
+      "queries": 3,
+      "hits": 0
+    },
+    "design_blogs": {
+      "queries": 6,
+      "hits": 4
+    }
+  },
+  "total_hits": 4,
+  "scrape_duration_seconds": 72.58,
+  "timestamp": "2026-06-27T22:53:54.787882",
+  "report_preview": "# Executive Summary\nThe current state of presentation design is characterized by a focus on clarity, accessibility, and visual hierarchy. With the rise of remote and mobile environments, presentation designers are prioritizing simplicity, minimalism, and intentional use of visual elements. Glassmorphism and neumorphism are emerging as dominant trends, with designers leveraging these styles to create engaging and immersive experiences.\n\n## Platform-by-Platform Breakdown\n\n* **Reddit**: Users are r"
+}
