@@ -1,16 +1,16 @@
 <div align="center">
 
 <a href="https://github.com/Allen73737/astryx-ai-assistant">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=40&pause=1000&color=00E5FF&center=true&vCenter=true&width=800&height=120&lines=%5B+SYSTEM+ONLINE+%5D;ASTRYX+AUTONOMOUS+INTELLIGENCE;INITIALIZING+AGENTIC+SWARM...;LOADING+GLASSMORPHIC+HUD..." alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=45&pause=1000&color=00E5FF&center=true&vCenter=true&width=1000&height=120&lines=%5B+SYSTEM+BOOT+SEQUENCE+INITIATED+%5D;A+S+T+R+Y+X;AUTONOMOUS+SPATIAL+INTELLIGENCE;LOADING+NEURAL+MATRIX...;BYPASSING+STANDARD+UI+PROTOCOLS..." alt="Astryx Typing SVG" />
 </a>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ELECTRON-191970?style=for-the-badge&logo=Electron&logoColor=00E5FF&labelColor=111111" />
-  <img src="https://img.shields.io/badge/REACT_18-20232A?style=for-the-badge&logo=react&logoColor=00E5FF&labelColor=111111" />
-  <img src="https://img.shields.io/badge/ZUSTAND-443E38?style=for-the-badge&logo=React&logoColor=10B981&labelColor=111111" />
-  <img src="https://img.shields.io/badge/FASTAPI-009688?style=for-the-badge&logo=FastAPI&logoColor=10B981&labelColor=111111" />
-  <img src="https://img.shields.io/badge/WEBSOCKETS-010101?style=for-the-badge&logo=socket.io&logoColor=A855F7&labelColor=111111" />
-  <img src="https://img.shields.io/badge/PYTHON_3.10+-3776AB?style=for-the-badge&logo=python&logoColor=A855F7&labelColor=111111" />
+  <a href="#architecture"><img src="https://img.shields.io/badge/ELECTRON-191970?style=for-the-badge&logo=Electron&logoColor=00E5FF&labelColor=050505" /></a>
+  <a href="#frontend-engine"><img src="https://img.shields.io/badge/REACT_18-20232A?style=for-the-badge&logo=react&logoColor=00E5FF&labelColor=050505" /></a>
+  <a href="#state-management"><img src="https://img.shields.io/badge/ZUSTAND-443E38?style=for-the-badge&logo=React&logoColor=10B981&labelColor=050505" /></a>
+  <a href="#backend-engine"><img src="https://img.shields.io/badge/FASTAPI-009688?style=for-the-badge&logo=FastAPI&logoColor=10B981&labelColor=050505" /></a>
+  <a href="#voice-layer"><img src="https://img.shields.io/badge/WHISPER+TTS-010101?style=for-the-badge&logo=openai&logoColor=A855F7&labelColor=050505" /></a>
+  <a href="#data-layer"><img src="https://img.shields.io/badge/CHROMADB-3776AB?style=for-the-badge&logo=python&logoColor=A855F7&labelColor=050505" /></a>
 </p>
 
 ---
@@ -18,122 +18,188 @@
 <table align="center" width="100%">
   <tr>
     <td align="center" width="50%">
-      <b>[ CORE DIRECTIVE ]</b><br><br>
-      Astryx is a hyper-optimized, bidirectional, zero-latency local AI operating environment. It bypasses standard conversational wrapper interfaces to provide direct OS-level automation, spatial tracking, and multi-agent heuristic swarms within a dynamic glassmorphism HUD.
+      <h3><code>[ DIRECTIVE // ASTRYX ]</code></h3>
+      Astryx isn't a chatbot wrapper. It is a <b>native, zero-latency desktop operating environment</b>. Bypassing generic conversational interfaces, it executes multi-agent swarms, spatial AR mapping, and native desktop automation (COM OLE) entirely within a hyper-fluid, dynamic glassmorphism HUD.
     </td>
     <td align="center" width="50%">
-      <b>[ SYSTEM TELEMETRY ]</b><br><br>
-      Latency: <code>< 15ms</code><br>
-      State Sync: <code>Zustand + WebSocket</code><br>
-      Memory: <code>ChromaDB + SQLite</code><br>
-      Audio: <code>Edge-TTS + PyAudio VAD</code>
+      <h3><code>[ CORE TELEMETRY ]</code></h3>
+      <br>
+      Latency ➔ <code>< 15ms Token Stream</code><br>
+      UI FPS ➔ <code>120Hz Framer Motion</code><br>
+      State Sync ➔ <code>Bi-Directional WS Sync</code><br>
+      Storage ➔ <code>Chroma Vector + SQLite</code>
     </td>
   </tr>
 </table>
 
 </div>
 
----
+<br>
 
-## ╔═════════════════════════════════════════════════════════════════════════╗
-## ║ 1. ARCHITECTURE & IMPLEMENTATION DETAILS                                  ║
-## ╚═════════════════════════════════════════════════════════════════════════╝
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+## ░░ 1. THE INTELLIGENCE MATRIX (MAIN FEATURES)                       ░░
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
-The codebase is split into two massive concurrent systems that communicate entirely via async streams.
-
-### `[ FRONTEND ]` The Glassmorphic HUD (React + Electron)
-Unlike generic web apps, Astryx runs in an isolated Electron Chromium sandbox with a custom `framer-motion` engine handling all visual physics.
-- **State Management (`jarvis.store.ts`)**: We do not use React Context. A single, monolithic Zustand store manages over 50 global variables (Orb states, websocket buffers, file tree nodes, theme hex codes). This allows deep components like the `BottomBar` to update independently without triggering app-wide re-renders.
-- **The AI Orb Engine**: The central glowing orb uses complex SVG displacement maps (`<feTurbulence>`) mapped to the `orbState` variable. When the backend fires a `speaking` event, the turbulence frequency spikes to simulate vocal vibrations.
-- **Dynamic CSS Injection**: Themes are swapped instantaneously by injecting native CSS variables (`--color-astryx-cyan`, etc.) directly into the `:root` pseudo-class.
-
-### `[ BACKEND ]` The Agentic Core (FastAPI + WebSockets)
-Built for pure concurrency and local execution.
-- **Zero-Latency Bridge (`websockets.py`)**: HTTP REST is abandoned for continuous tasks. WebSockets stream JSON payloads back and forth. If you ask a coding question, the LLM tokens are yielded instantly into the UI's terminal feed before the sentence is even finished.
-- **Memory Subsystems (`memory.py`)**: Employs **ChromaDB** for vector embeddings (RAG) to remember past conversations, and **SQLite** for structured telemetry (Health trackers, Finance, To-Do lists).
-- **Voice Engine (`voice_engine.py`)**: Uses `faster-whisper` running locally for instantaneous Speech-to-Text, and hooks into a custom Voice Activity Detection (VAD) pipeline to know exactly when you start and stop talking, overriding the mic buffer dynamically.
-
----
-
-## ╔═════════════════════════════════════════════════════════════════════════╗
-## ║ 2. THE INTELLIGENCE MATRIX (MAIN FEATURES)                                ║
-## ╚═════════════════════════════════════════════════════════════════════════╝
-
-Astryx contains a registry of autonomous tools designed to execute desktop-level tasks.
+Astryx features a registry of over **50 autonomous heuristic sub-systems**, replacing standard desktop software with native AI counterparts.
 
 <table width="100%">
   <tr>
-    <td width="5%">📐</td>
-    <td width="20%"><b>Spatial Wall Mapper</b></td>
-    <td>Hooks into <code>navigator.mediaDevices</code> to project an Augmented Reality neon grid over the camera feed, simulating LiDAR spatial scanning to map room bounds.</td>
+    <td width="25%" align="center">
+      <img src="https://capsule-render.vercel.app/api?type=rect&color=00E5FF&height=40&text=ANTIGRAVITY+IDE&fontColor=ffffff&fontSize=15" /><br>
+      <code>[ AGENTIC SWARM CODING ]</code>
+    </td>
+    <td width="75%">
+      An autonomous coding workspace injected directly into the HUD. It runs multi-agent LLM swarms that draft code, execute it in a local shell, intercept <code>stdout/stderr</code>, and autonomously self-correct failures without human intervention.
+    </td>
   </tr>
   <tr>
-    <td width="5%">💻</td>
-    <td width="20%"><b>Antigravity IDE</b></td>
-    <td>A fully functioning sub-window executing multi-agent coding. LLMs draft code in Python/TypeScript, execute it in an isolated shell, capture <code>stderr</code>, and self-correct errors autonomously.</td>
+    <td width="25%" align="center">
+      <img src="https://capsule-render.vercel.app/api?type=rect&color=10B981&height=40&text=LIVE+AUDIO+TRACKER&fontColor=ffffff&fontSize=15" /><br>
+      <code>[ REALTIME BUFFER MAP ]</code>
+    </td>
+    <td width="75%">
+      Intercepts system/desktop audio and microphone inputs simultaneously using <code>navigator.mediaDevices</code>. Maps raw audio buffers onto an HTML5 Canvas sine-wave phase visualizer while running continuous transcription to synthesize smart meeting notes.
+    </td>
   </tr>
   <tr>
-    <td width="5%">📝</td>
-    <td width="20%"><b>Live Audio Tracker</b></td>
-    <td>Intercepts system audio or microphone streams, visually maps the buffer to a sine-wave canvas, and auto-generates Markdown notes and summaries in real-time.</td>
+    <td width="25%" align="center">
+      <img src="https://capsule-render.vercel.app/api?type=rect&color=A855F7&height=40&text=PPT+DESIGNER&fontColor=ffffff&fontSize=15" /><br>
+      <code>[ WIN32COM AUTOMATION ]</code>
+    </td>
+    <td width="75%">
+      Hijacks Microsoft PowerPoint via Python's <code>win32com.client</code>. Instead of writing text, Astryx physically manipulates the `.pptx` XML DOM, drawing premium gradients (Quantum Flux, Cyber Hologram) and shapes onto slides in real-time.
+    </td>
   </tr>
   <tr>
-    <td width="5%">📊</td>
-    <td width="20%"><b>PPT Designer (COM)</b></td>
-    <td>Uses Python's <code>win32com.client</code> to hijack the Microsoft PowerPoint executable, drawing custom ultra-premium slides (Quantum Flux, Obsidian) using OLE Automation bypassing human input.</td>
-  </tr>
-  <tr>
-    <td width="5%">📡</td>
-    <td width="20%"><b>Radar Scanner</b></td>
-    <td>A real-time sweeping radar UI mapping out local network topologies and system vulnerabilities.</td>
+    <td width="25%" align="center">
+      <img src="https://capsule-render.vercel.app/api?type=rect&color=F59E0B&height=40&text=SPATIAL+WALL+MAPPER&fontColor=ffffff&fontSize=15" /><br>
+      <code>[ AR OVERLAY PROTOCOL ]</code>
+    </td>
+    <td width="75%">
+      Hooks into standard webcams to project an Augmented Reality neon isometric grid. It tracks bounds and depth, forcing the global <code>OrbState</code> into <code>ar_mode</code> to override standard UI boundaries.
+    </td>
   </tr>
 </table>
 
----
+<br>
 
-## ╔═════════════════════════════════════════════════════════════════════════╗
-## ║ 3. DYNAMIC UI THEMING ENGINE                                              ║
-## ╚═════════════════════════════════════════════════════════════════════════╝
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+## ░░ 2. GLASSMORPHIC UI & DYNAMIC THEMING                             ░░
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
-The UI is built on a highly custom glassmorphism aesthetic. No generic Tailwind templates were used; everything is custom vanilla CSS utilizing `backdrop-filter: blur(20px)` and intense hex glows.
+We built a **Dynamic Glassmorphism** design system powered entirely by raw CSS variables, `backdrop-filter`, and `framer-motion`. Zero generic Tailwind boilerplates were used. 
 
-| Theme Protocol | Hex Core | Designation |
-| :--- | :---: | :--- |
-| **CYAN** | `![#00e5ff](https://placehold.co/15x15/00e5ff/00e5ff.png)` `#00E5FF` | Default Intelligence |
-| **STEALTH** | `![#111111](https://placehold.co/15x15/111111/111111.png)` `#111111` | Obsidian / Covert Operations |
-| **EMERALD** | `![#10b981](https://placehold.co/15x15/10b981/10b981.png)` `#10B981` | Matrix / System Monitoring |
-| **EMBER** | `![#f59e0b](https://placehold.co/15x15/f59e0b/f59e0b.png)` `#F59E0B` | Overclocked / Alert |
-| **VIOLET** | `![#a855f7](https://placehold.co/15x15/a855f7/a855f7.png)` `#A855F7` | Neural Network / Creative |
+### 🟢 THE AI ORB ENGINE
+The visual centerpiece is the AI Orb, programmed using intense SVG displacement maps (`<feTurbulence>` and `<feDisplacementMap>`). 
+As `jarvis.store.ts` registers websocket events (`listening`, `processing`, `speaking`), the React frontend manipulates the `baseFrequency` and `numOctaves` of the SVG filter at 120Hz, creating a liquid, breathing intelligence.
 
----
+### 🎨 THE HEX CORE (THEMES)
+Astryx intercepts the `:root` pseudo-class to inject massive color shifts across the entire application instantly.
 
-## ╔═════════════════════════════════════════════════════════════════════════╗
-## ║ 4. INITIALIZATION PROTOCOL (INSTALLATION)                                 ║
-## ╚═════════════════════════════════════════════════════════════════════════╝
+| MODE | STATUS | HEX PAYLOAD | AESTHETIC DESIGNATION |
+| :--- | :--- | :--- | :--- |
+| **CYAN** | `ONLINE` | `![#00e5ff](https://placehold.co/15x15/00e5ff/00e5ff.png) #00E5FF` | The default, cold, high-intelligence layout. |
+| **STEALTH** | `COVERT` | `![#111111](https://placehold.co/15x15/111111/111111.png) #111111` | Obsidian, high-contrast minimalist interface. |
+| **EMERALD** | `METRICS`| `![#10b981](https://placehold.co/15x15/10b981/10b981.png) #10B981` | System monitoring and Matrix telemetry. |
+| **EMBER** | `WARNING`| `![#f59e0b](https://placehold.co/15x15/f59e0b/f59e0b.png) #F59E0B` | Overclocked sub-routines or alert states. |
+| **VIOLET** | `CREATIVE`| `![#a855f7](https://placehold.co/15x15/a855f7/a855f7.png) #A855F7` | Neural networks and creative generation. |
 
+<br>
+
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+## ░░ 3. TECHNICAL ARCHITECTURE (DEEP DIVE)                            ░░
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+The codebase represents a masterclass in separating a heavy heuristic backend from a buttery-smooth client.
+
+```mermaid
+graph TD;
+    subgraph FRONTEND [ELECTRON / REACT LAYER]
+        direction TB
+        Z[jarvis.store.ts<br>(Zustand Monolith)] --> FM[Framer Motion<br>Animation Engine]
+        Z --> DOM[Glassmorphic DOM]
+        Mic[navigator.mediaDevices] --> VAD_UI[Waveform Visualizer]
+    end
+
+    subgraph TRANSPORT [0-LATENCY BRIDGE]
+        direction LR
+        WS{{WebSockets via FastAPI}}
+    end
+
+    subgraph BACKEND [PYTHON FASTAPI LAYER]
+        direction TB
+        ORB[Orchestrator Core]
+        MEM[(ChromaDB + SQLite)]
+        VOICE[faster-whisper STT<br>edge-tts Engine]
+        TOOLS[Python win32com<br>Local Sub-Agents]
+        LLM[Local LLMs / Groq API]
+        
+        ORB <--> MEM
+        ORB <--> VOICE
+        ORB <--> TOOLS
+        ORB <--> LLM
+    end
+
+    Z <==> |JSON Payloads / Tokens| WS
+    WS <==> |Async Streams| ORB
+```
+
+### `[ FRONTEND // ZUSTAND & ELECTRON ]`
+React Context is too slow for 120Hz real-time token streaming. We utilize a massive **Zustand Monolithic Store** (`jarvis.store.ts`).
+- **Independent Mutability**: When a token arrives via WebSockets, Zustand updates the `liveNotesContent` or `ideTerminalLogs` directly. The `BottomBar` executes re-renders independently without freezing the glowing Orb animations.
+- **IPC Architecture**: Electron's `preload.js` strictly handles OS-level desktop window states (transparent overlays, always-on-top flags).
+
+### `[ BACKEND // FASTAPI & VOICE ENGINE ]`
+The Python backend handles heavy neural loads concurrently.
+- **Bi-Directional Sockets (`websockets.py`)**: Standard HTTP REST is inadequate for AI. FastApi mounts a permanent WebSocket connection. LLM tokens, system metrics (CPU/VRAM), and tool execution flags are pushed instantly to the frontend.
+- **Voice Engine (`voice_engine.py`)**: Implements strict `PyAudio` stream buffering. It uses **Voice Activity Detection (VAD)** to mathematically determine when silence happens, cuts the buffer, feeds it to `faster-whisper`, and replies using `edge-tts` within milliseconds.
+- **Memory (`memory.py`)**: Every interaction is vectorized using embeddings and stored in **ChromaDB**. Astryx inherently remembers contexts from sessions ago using RAG retrieval techniques.
+
+<br>
+
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+## ░░ 4. SYSTEM INITIALIZATION & DEPLOYMENT                            ░░
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+Follow the directive below to bypass local firewalls and initialize Astryx on your local machine.
+
+### `[1]` CLONE REPOSITORY
 ```powershell
-# [1] ESTABLISH LOCAL REPOSITORY
 git clone https://github.com/Allen73737/astryx-ai-assistant.git
 cd astryx-ai-assistant
+```
 
-# [2] CONFIGURE ENVIRONMENT SECRETS
-# Copy backend/.env.example to backend/.env and inject API credentials.
-# Note: Pydantic natively loads these into the memory buffer at runtime via JARVIS_ prefixes.
-
-# [3] INITIALIZE FRONTEND (ELECTRON/VITE)
+### `[2]` DEPLOY FRONTEND ENGINE (ELECTRON / VITE)
+```powershell
 npm install
 npm run dev
+```
 
-# [4] INITIALIZE BACKEND (FASTAPI/PYTHON)
+### `[3]` ESTABLISH BACKEND MATRIX (FASTAPI / PYTHON)
+```powershell
+# Open a secondary terminal instance
 cd backend
 python -m venv .venv
+
+# Activate Virtual Environment (Windows)
 .venv\Scripts\activate
+
+# Install Dependencies
 pip install -r requirements.txt
+
+# Secure Credentials
+# Rename .env.example to .env and input your API keys.
+# Pydantic Settings handles secure ingestion dynamically via JARVIS_ prefixes.
+
+# Ignite the Core
 python main.py
 ```
 
+<br>
+
+---
 <div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=00E5FF&height=30&section=footer" />
   <br>
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=10b981&height=100&section=footer" />
-  <p><code>EOF // ASTRYX SYSTEM READY</code></p>
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=600&size=20&pause=2000&color=00E5FF&center=true&vCenter=true&width=600&height=50&lines=EOF+%2F%2F+ASTRYX+READY;SYSTEM+STANDING+BY..." alt="Footer Typing SVG" />
 </div>
