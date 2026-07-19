@@ -1,136 +1,309 @@
 <div align="center">
 
-```
-  █████   █████████  ███████████  ███████████   █████   █████  █████   █████
- ░░███   ░░███░░░░░█ ░░███░░░░░███░░███░░░░░███ ░░███   ░░███  ░░███   ░░███ 
-  ░███    ░███  █ ░   ░███    ░███ ░███    ░███  ░░███ ░███     ░░███ ███   
-  ░███    ░██████     ░██████████  ░███████████   ░░░█████       ░░█████    
-  ░███    ░███░░█     ░███░░░░░███ ░███░░░░░███    ░███░███       ░███░███   
-  ░███    ░███ ░   █  ░███    ░███ ░███    ░███   ░███ ░░███     ███ ░░███  
-  █████   ██████████  █████   █████████████████   █████ ░░█████ █████   █████
- ░░░░░   ░░░░░░░░░░  ░░░░░   ░░░░░░░░░░░░░░░░░   ░░░░░   ░░░░░ ░░░░░   ░░░░░ 
-```
-
-### `[ PROTOCOL ASTRYX // COGNITIVE MATRIX v1.1.0 ]`
-*A Zero-Latency Local Intelligence Operating System, built on Transparent Glassmorphism & High-Frequency WebSockets.*
-
-<br>
+<!-- Astro-themed Glowing Banner -->
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=700&size=48&pause=1000&color=00E5FF&center=true&vCenter=true&width=1000&height=120&lines=ASTRYX+%E2%9E%A2+SYSTEM+ONLINE;AUTONOMOUS+COGNITIVE+HUD;50%2B+HEURISTIC+OPERATIONS+LOADED" alt="Astryx Boot Sequence" />
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ASTRYX-SYSTEM_ONLINE-00E5FF?style=for-the-badge&logo=probot&logoColor=00E5FF&labelColor=121212" />
-  <img src="https://img.shields.io/badge/50_INTELLIGENCE_FEATURES-LOADED-10B981?style=for-the-badge&logo=micro-strategy&logoColor=10B981&labelColor=121212" />
-  <img src="https://img.shields.io/badge/LATENCY-SUB_15MS-A855F7?style=for-the-badge&logo=speedtest&logoColor=A855F7&labelColor=121212" />
+  <img src="https://img.shields.io/badge/ELECTRON_SHELL-Transparent_HUD-00E5FF?style=flat-square&logo=electron&logoColor=00E5FF" />
+  <img src="https://img.shields.io/badge/REACT_18-Zustand_State-10B981?style=flat-square&logo=react&logoColor=10B981" />
+  <img src="https://img.shields.io/badge/FASTAPI_CORE-WebSockets_Bridge-A855F7?style=flat-square&logo=fastapi&logoColor=A855F7" />
+  <img src="https://img.shields.io/badge/COGNITIVE_CORES-50_Active_Modules-F59E0B?style=flat-square&logo=cpu&logoColor=F59E0B" />
 </p>
 
----
-
-<div style="border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 12px; padding: 20px; background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(25px); box-shadow: 0 8px 32px 0 rgba(0, 229, 255, 0.1);">
-<h3 align="center" style="color: #00E5FF; margin-top: 0;">🌐 GLASSMORPHIC HUD TELEMETRY</h3>
-
-Astryx bypasses traditional conversational AI wrappers, creating a native, zero-latency desktop operating environment. Utilizing high-frequency WebSockets to link our asynchronous Python backend directly with an Electron Chromium interface, Astryx renders a fully hardware-accelerated, transparent glassmorphic overlay onto your desktop.
-
-* **UI Fluidity:** 120Hz framerate utilizing React & Framer Motion.
-* **OS-Level Injection:** Native transparency, transparent window clicking, and focus overlays.
-* **Low Memory Footprint:** Dynamic GGUF model caching and swap routines.
-</div>
-
-</div>
-
-<br>
-
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-## ░░ 1. COMPREHENSIVE INTELLIGENCE MATRIX (50+ ACTIVE FEATURES)     ░░
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-
-Astryx's **Intelligence Matrix** is divided into 5 distinct operational nodes, housing 50+ supporting processes, utilities, and heuristic tools:
-
-<div style="background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(168, 85, 247, 0.2); padding: 15px; margin-bottom: 20px;">
-
-### 💻 A. SYSTEM CODING & RUNTIME SANDBOX (10 Features)
-* **1. Antigravity IDE:** Monolithic editor framework featuring full workspace trees, active files, and diff highlights.
-* **2. Multi-Agent Swarm Coding:** Spawns hierarchical sub-agents that draft code files and review them concurrently.
-* **3. Secure Subprocess Sandbox (`code_sandbox.py`):** Runs compiled languages securely in a virtual subprocess.
-* **4. Terminal Log Interceptor:** Captures execution logs, piping stdout/stderr straight back into the LLM context.
-* **5. Self-Correction Loop:** Autonomously analyzes stack traces and rewrites faulty scripts until success status.
-* **6. Code Explainer (`code_explainer.py`):** Deconstructs script blocks line-by-line, providing semantic explanations.
-* **7. Automated Reviewer (`code_reviewer.py`):** Scores codebase vulnerabilities for security, style, and optimizations.
-* **8. Interactive Compiler UI:** Render outputs of TypeScript, JS, HTML, or Python directly in the HUD.
-* **9. Code Minifier Engine:** Compresses files to raw tokens, outputting real-time size comparison dials.
-* **10. DevOps Console:** Integrates git/docker subprocess logs to track repository states and container pools.
-
-</div>
-
-<div style="background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(0, 229, 255, 0.2); padding: 15px; margin-bottom: 20px;">
-
-### 🎙️ B. ACOUSTIC & SPEECH INTELLIGENCE (10 Features)
-* **11. Live Audio Tracker:** Simultaneously listens to microphone and desktop system loops via browser APIs.
-* **12. Vector Sine Wave Visualizer:** Renders high-fidelity sound visualizers on canvas at 60FPS.
-* **13. Real-Time MD Synthesis:** Auto-summarizes active transcriptions into formatted markdown meeting notes.
-* **14. Hardware Audio Mixer:** Custom volume interface scaling specific microphone input levels.
-* **15. Voice Activity Detection (VAD):** Truncates silence frames locally to avoid server latency.
-* **16. local Speech-to-Text (`faster-whisper`):** Direct token conversion using GGUF whisper models.
-* **17. Voice Profile Selector:** Choose custom voice models ranging from casual to highly technical styles.
-* **18. Pitch & Rate Modulation:** Injects fine-grain SSML parameters (`rate`, `pitch`) into local TTS engines.
-* **19. Voice Learning Loop (`voice_learning.py`):** Adapts pronunciation maps to correct misheard syllables.
-* **20. SSML Customizer:** Dynamically wraps spoken words with tags to modify emotional accentuation.
-
-</div>
-
-<div style="background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.2); padding: 15px; margin-bottom: 20px;">
-
-### 📊 C. PRODUCTIVITY & SYSTEM CONTROLS (10 Features)
-* **21. PowerPoint OLE Generator (`ppt_generator.py`):** Programmatically drives Slide generation via PowerPoint's API.
-* **22. Slide Design System Engine:** Applies premium layout matrices like "Quantum Flux" and "Stealth Obsidian" via COM.
-* **23. PPT Merger (`ppt_merger.py`):** Joins presentation decks, building automated slide bridge transitions.
-* **24. Social Crawler (`trend_learner.py`):** Scrapes Reddit, Behance, and Twitter for emerging global styles.
-* **25. Trend Predictor (`trend_predictor.py`):** Evaluates crawler data using regression models to map trend lifespans.
-* **26. Live HTML Dashboard Generator:** Instantly renders responsive charts, metrics, and cards.
-* **27. Finance Tracker (`data_analyst.py`):** Charts budget and crypto holdings using SQLite database tables.
-* **28. Health Tracker System:** Logs daily workout, hydration, and medication routines dynamically.
-* **29. IoT Smart Home Interface:** Toggles and configures connected devices via HTTP/WS endpoints.
-* **30. DevOps Command Router:** Manages local docker containers and git checkouts on visual overlays.
-
-</div>
-
-<div style="background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.2); padding: 15px; margin-bottom: 20px;">
-
-### 📐 D. SPATIAL VISUALIZATION & GRAPHICS (10 Features)
-* **31. Spatial Wall Mapper:** Renders real-time isometric mesh projection lines over live webcam feeds.
-* **32. Camera HUD Overlay:** Toggles overlays, mimicking LiDAR space sweeping scanners.
-* **33. Dreamscape Simulator:** Spawns a canvas particle visualization mapping system resource states.
-* **34. Starmap Navigation:** Interactive astronomical map simulation rendering coordinate paths.
-* **35. Mood Mirror (`moodmirror`):** Real-time mood recognition mapping system telemetry with webcam filters.
-* **36. Imagen Renderer (`image_generator.py`):** Injects generated art assets into PPT designs.
-* **37. Particle Lab Sandbox (`particle_lab.py`):** Renders particle collisions using customized vector physics.
-* **38. SVG Layout Composer:** Generates vector drawings locally when local image generators are offline.
-* **39. Unsplash Cache Manager:** Pre-downloads stock photography matching computed design topics.
-* **40. Screen Capture Inspector:** Grabs monitor frames to perform OCR and vision queries.
-
-</div>
-
-<div style="background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(10px); border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2); padding: 15px; margin-bottom: 20px;">
-
-### 🧠 E. HEURISTIC CORE & UTILITIES (10 Features)
-* **41. Context Router (`orchestrator.py`):** Spawns local LLMs or routes queries to external APIs.
-* **42. Vector Graph Memory (`memory.py`):** Manages vector node clusters inside a local ChromaDB instance.
-* **43. Smart Meeting Transcript:** Runs voice-to-text recording, creating decisions and task item lists.
-* **44. Visual Workflow Builder:** Links daily actions (weather, schedule, code review) to visual node diagrams.
-* **45. Multi-Persona Debate Arena:** Optimist, Skeptic, Strategist, Pragmatist agents debating user questions.
-* **46. Proactive Monitor System:** Monitors CPU/VRAM load, giving recommendations on overlays.
-* **47. Model Swapping Engine:** Caches GGUF weights, dynamically loading model routes to fit local VRAM sizes.
-* **48. Keyboard Hook Daemon:** Translates hotkeys to prompt overlays instantly.
-* **49. Clipboard Broker:** Programmatically intercepts text and code structures.
-* **50. Schedule Alarm Daemon:** Sets recurring chron schedules, triggering OS system messages.
-
 </div>
 
 ---
 
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-## ░░ 2. COGNITIVE PIPELINE FLOW & DATA MAP                           ░░
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+<!-- Glassmorphic System Status Dashboard -->
+<div style="background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(20, 20, 20, 0.8) 100%); border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 16px; padding: 25px; margin: 20px 0; box-shadow: 0 8px 32px 0 rgba(0, 229, 255, 0.15); backdrop-filter: blur(20px);">
+  <h2 style="color: #00E5FF; font-family: 'Orbitron', sans-serif; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+    <span>⚡</span> CORE DIRECTIVE: ASTRYX HUD
+  </h2>
+  <p style="color: #e0e0e0; line-height: 1.6; font-size: 15px;">
+    Astryx is a zero-latency, transparent, glassmorphic desktop operating HUD. By linking an asynchronous Python backend directly with a hardware-accelerated Electron shell via WebSockets, Astryx executes spatial AR mappings, multi-agent coding swarms, and native desktop COM automation in real-time.
+  </p>
+  
+  <!-- Mini Grid -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 12px; text-align: center;">
+      <div style="color: #888; font-size: 11px; text-transform: uppercase;">RESPONSE SPEED</div>
+      <div style="color: #00E5FF; font-size: 22px; font-weight: bold; margin-top: 4px;">&lt; 15ms</div>
+    </div>
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 12px; text-align: center;">
+      <div style="color: #888; font-size: 11px; text-transform: uppercase;">COGNITIVE CORES</div>
+      <div style="color: #10B981; font-size: 22px; font-weight: bold; margin-top: 4px;">50 Active</div>
+    </div>
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 12px; text-align: center;">
+      <div style="color: #888; font-size: 11px; text-transform: uppercase;">STATE MIXING</div>
+      <div style="color: #A855F7; font-size: 22px; font-weight: bold; margin-top: 4px;">Zustand Sync</div>
+    </div>
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 12px; text-align: center;">
+      <div style="color: #888; font-size: 11px; text-transform: uppercase;">UI ENGINE</div>
+      <div style="color: #F59E0B; font-size: 22px; font-weight: bold; margin-top: 4px;">120Hz Smooth</div>
+    </div>
+  </div>
+</div>
 
-The bidirectional communication flow operates entirely over async message frames:
+---
+
+## 🚀 THE 50 ACTIVE INTELLIGENCE FEATURES
+
+Astryx runs a highly structured registry of **50 high-intelligence autonomous operations** mapped across 5 specific operational tabs.
+
+<div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+
+  <!-- Category A -->
+  <div style="border: 1px solid rgba(0, 229, 255, 0.15); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.01);">
+    <h3 style="color: #00E5FF; margin-top: 0; font-family: 'Orbitron', sans-serif;">💻 NODE A: COGNITIVE SANDBOX (Coding Systems)</h3>
+    <table width="100%" style="border-collapse: collapse; margin-top: 10px;">
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td width="30%" style="color: #00e5ff; font-weight: bold; padding: 8px 0;">1. Antigravity IDE</td>
+        <td style="color: #ccc; padding: 8px 0;">Monolithic editor with dynamic tree mapping, file diff highlighting, and multi-file views.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">2. Agentic Coding Swarm</td>
+        <td style="color: #ccc; padding: 8px 0;">Hierarchical agent swarms communicating synchronously to write, review, and patch structures.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">3. Code Sandbox Engine</td>
+        <td style="color: #ccc; padding: 8px 0;">Secure local subprocess isolation running Node and Python files.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">4. Log Terminal Interceptor</td>
+        <td style="color: #ccc; padding: 8px 0;">Pipes live execution logs (stdout/stderr) directly into the agent reasoning context.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">5. Compiler Self-Correction</td>
+        <td style="color: #ccc; padding: 8px 0;">Recursively inspects stack traces and rewrites buggy code blocks until successful validation.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">6. Code Explainer (`code_explainer.py`)</td>
+        <td style="color: #ccc; padding: 8px 0;">Translates codebases into clean block-by-block and line-by-line semantic reviews.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">7. Code Reviewer (`code_reviewer.py`)</td>
+        <td style="color: #ccc; padding: 8px 0;">Scour code files for performance bottlenecks, style issues, and security vulnerabilities.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">8. Interactive Compiler Display</td>
+        <td style="color: #ccc; padding: 8px 0;">Visual compilation outputs inside the Electron interface without secondary windows.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">9. Code Minifier Console</td>
+        <td style="color: #ccc; padding: 8px 0;">Compresses JS/CSS payloads, giving relative sizing and efficiency metrics.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #00e5ff; font-weight: bold; padding: 8px 0;">10. DevOps Console Integration</td>
+        <td style="color: #ccc; padding: 8px 0;">Renders git tree states and local Docker container health visually on the panel.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Category B -->
+  <div style="border: 1px solid rgba(16, 185, 129, 0.15); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.01);">
+    <h3 style="color: #10B981; margin-top: 0; font-family: 'Orbitron', sans-serif;">🎙️ NODE B: ACOUSTIC INTELLIGENCE (Voice & Sound)</h3>
+    <table width="100%" style="border-collapse: collapse; margin-top: 10px;">
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td width="30%" style="color: #10B981; font-weight: bold; padding: 8px 0;">11. Live Audio Tracker</td>
+        <td style="color: #ccc; padding: 8px 0;">Dual channel system and microphone audio processing using advanced browser APIs.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">12. Spectral visualizer canvas</td>
+        <td style="color: #ccc; padding: 8px 0;">Continuous 60FPS Fourier transform frequency and wave visualizer on HUD canvas.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">13. real-time Markdown Synthesis</td>
+        <td style="color: #ccc; padding: 8px 0;">Assembles incoming transcription vectors into organized markdown notes.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">14. Voice Activity Detection (VAD)</td>
+        <td style="color: #ccc; padding: 8px 0;">Mathematical silence filtering inside Python ring buffers to optimize latency.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">15. local Speech-to-Text</td>
+        <td style="color: #ccc; padding: 8px 0;">Fast local GGUF transcribing backed by `faster-whisper`.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">16. Voice Profile Library</td>
+        <td style="color: #ccc; padding: 8px 0;">Pre-configured synthetic neural voices (casual, executive, diagnostic).</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">17. Pitch & Speed Modulator</td>
+        <td style="color: #ccc; padding: 8px 0;">Adjusts vocal tone ranges and speed margins natively via Zustand.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">18. Pronunciation Adjuster</td>
+        <td style="color: #ccc; padding: 8px 0;">Custom SQLite mapping to correct voice-to-text spelling anomalies.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">19. Audio EQ Decibel Mixer</td>
+        <td style="color: #ccc; padding: 8px 0;">Multi-band physical graphic equalizer rendering custom responsive frequencies.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #10B981; font-weight: bold; padding: 8px 0;">20. Voice Learning Engine</td>
+        <td style="color: #ccc; padding: 8px 0;">Adapts sound levels dynamically based on ambient background noise metrics.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Category C -->
+  <div style="border: 1px solid rgba(168, 85, 247, 0.15); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.01);">
+    <h3 style="color: #A855F7; margin-top: 0; font-family: 'Orbitron', sans-serif;">📊 NODE C: HEURISTIC AUTOMATIONS (Productivity)</h3>
+    <table width="100%" style="border-collapse: collapse; margin-top: 10px;">
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td width="30%" style="color: #A855F7; font-weight: bold; padding: 8px 0;">21. PPT OLE Generator</td>
+        <td style="color: #ccc; padding: 8px 0;">Hooks directly into Microsoft PowerPoint via `win32com.client` OLE COM.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">22. Design Matrix Stylist</td>
+        <td style="color: #ccc; padding: 8px 0;">Injects premium layout CSS/XML matrices dynamically during slide creation.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">23. Presentation Slide Bridge</td>
+        <td style="color: #ccc; padding: 8px 0;">Constructs automatic aesthetic slide transitions and logical connectors.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">24. Design Trend Crawler</td>
+        <td style="color: #ccc; padding: 8px 0;">Scrapes Behance, Dribbble, and Reddit for fresh UI trends in design.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">25. Design Trend Predictor</td>
+        <td style="color: #ccc; padding: 8px 0;">Uses data analysis models to predict visual style trends.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">26. Live Dashboard Generator</td>
+        <td style="color: #ccc; padding: 8px 0;">Builds standalone HTML dashboards with interactive widgets on the fly.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">27. Personal Finance DB</td>
+        <td style="color: #ccc; padding: 8px 0;">SQLite ledger tracker to log crypto holdings and daily balances.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">28. Personal Health Dashboard</td>
+        <td style="color: #ccc; padding: 8px 0;">Logs hydration, workout routines, and medication cycles.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">29. IoT Smart Home Daemon</td>
+        <td style="color: #ccc; padding: 8px 0;">Coordinates local IoT state properties via visual command switches.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #A855F7; font-weight: bold; padding: 8px 0;">30. Unsplash Fetch Cache</td>
+        <td style="color: #ccc; padding: 8px 0;">Pre-fetches stock graphics matched to PPT layout metadata structures.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Category D -->
+  <div style="border: 1px solid rgba(245, 158, 11, 0.15); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.01);">
+    <h3 style="color: #F59E0B; margin-top: 0; font-family: 'Orbitron', sans-serif;">📐 NODE D: SPATIAL COMPUTING (Graphics & AR)</h3>
+    <table width="100%" style="border-collapse: collapse; margin-top: 10px;">
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td width="30%" style="color: #F59E0B; font-weight: bold; padding: 8px 0;">31. Spatial Wall Mapper</td>
+        <td style="color: #ccc; padding: 8px 0;">Renders an isometric grid layout matching webcam tracking inputs.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">32. Radar Target Sweeper</td>
+        <td style="color: #ccc; padding: 8px 0;">Interactive HUD radar scanner simulating active host topology sweeps.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">33. Dreamscape Simulator</td>
+        <td style="color: #ccc; padding: 8px 0;">Spawns customizable particle systems responding to CPU load metrics.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">34. Celestial Starmap NAV</td>
+        <td style="color: #ccc; padding: 8px 0;">Simulation chart of astronomical bodies, dynamically plotting space paths.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">35. Mood Mirror AR Engine</td>
+        <td style="color: #ccc; padding: 8px 0;">Uses camera inputs to scan micro-expressions and display mood indices.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">36. Imagen Vector Engine</td>
+        <td style="color: #ccc; padding: 8px 0;">Produces custom SVGs programmatically when API generation fails.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">37. Particle Lab Sandbox</td>
+        <td style="color: #ccc; padding: 8px 0;">Custom gravitational field testing sandbox using Vector Canvas engines.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">38. Screen Grab OCR Engine</td>
+        <td style="color: #ccc; padding: 8px 0;">Takes system viewport snaps to run optical character recognition pipelines.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">39. Genome Sequence Bio-Lab</td>
+        <td style="color: #ccc; padding: 8px 0;">Calculates biological matches and sequence alignments on custom diagrams.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #F59E0B; font-weight: bold; padding: 8px 0;">40. Pager Terminal CRT Grid</td>
+        <td style="color: #ccc; padding: 8px 0;">Simulates a retro physical green CRT monitor displaying active task logs.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Category E -->
+  <div style="border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.01);">
+    <h3 style="color: #EF4444; margin-top: 0; font-family: 'Orbitron', sans-serif;">🧠 NODE E: HYPER-AGENTICS (Heuristics & Utilities)</h3>
+    <table width="100%" style="border-collapse: collapse; margin-top: 10px;">
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td width="30%" style="color: #EF4444; font-weight: bold; padding: 8px 0;">41. Context Router Engine</td>
+        <td style="color: #ccc; padding: 8px 0;">Splits and routes tasks to local GGUF models or external API weights.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">42. Vector Graph Memory</td>
+        <td style="color: #ccc; padding: 8px 0;">Saves conversation patterns and details inside local ChromaDB graphs.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">43. Smart Meeting Summary</td>
+        <td style="color: #ccc; padding: 8px 0;">Distills complex transcriptions into action points, dates, and assignees.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">44. Visual Workflow Map</td>
+        <td style="color: #ccc; padding: 8px 0;">Allows visual node configuration to chain triggers and automation scripts.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">45. Multi-Persona Debate</td>
+        <td style="color: #ccc; padding: 8px 0;">Runs debates inside the HUD between custom developer personas.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">46. Proactive HUD Alerts</td>
+        <td style="color: #ccc; padding: 8px 0;">Evaluates background resource allocations, displaying overclocking notifications.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">47. Model Swapping Weights</td>
+        <td style="color: #ccc; padding: 8px 0;">Clears and loads GGUF model files to fit local GPU VRAM sizes dynamically.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">48. Keyboard Hook Daemon</td>
+        <td style="color: #ccc; padding: 8px 0;">Intercepts background keyboard combos, launching the transparent HUD.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">49. Clipboard Broker Interface</td>
+        <td style="color: #ccc; padding: 8px 0;">Monitors local clipboards to suggest code and prompt enhancements.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="color: #EF4444; font-weight: bold; padding: 8px 0;">50. Cron Schedule Daemon</td>
+        <td style="color: #ccc; padding: 8px 0;">Coordinates background chron tasks to trigger OS desktop alerts.</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+---
+
+## 🛠️ SUPPORTING ARCHITECTURE & UTILITY STACK
+
+Rather than running as independent packages, Astryx connects a dedicated set of supporting features to ensure seamless execution:
+
+* **Voice Activity Detection (VAD) Engine:** Written natively in Python utilizing `PyAudio` sound-energy amplitude computations, filtering silent packages to optimize transcribing speed.
+* **Local ChromaDB Store:** An embedded vector database that runs entirely inside the project directory, storing semantic embeddings for conversation context.
+* **FastAPI WebSocket Transport:** A bidirectional WebSocket communication channel maintaining connections at `ws://localhost:8002/ws`, avoiding slow REST APIs.
+* **Electron Window IPC Overlay:** Configured to launch a borderless, click-through HTML window, overlaying glassmorphic neon widgets onto the desktop surface.
+* **Microsoft PowerPoint COM Automation:** Managed via `win32com.client` and OLE interfaces to load and command the PowerPoint executable process directly.
+
+---
+
+## ⚙️ COGNITIVE PIPELINE FLOW
 
 ```mermaid
 sequenceDiagram
@@ -157,12 +330,10 @@ sequenceDiagram
 
 ---
 
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-## ░░ 3. DETAILED IMPLEMENTATION SCHEMAS                               ░░
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+## 💻 CODE IMPLEMENTATION SCHEMAS
 
 ### 🎙️ The Acoustic Loop (`voice_engine.py`)
-Our audio transcription bypasses standard web services. Raw sound is captured in a continuous ring buffer using `PyAudio`.
+Our audio transcribing captures sound data via a PyAudio ring buffer.
 
 ```python
 # Raw VAD implementation snippet inside voice_engine.py
@@ -188,7 +359,7 @@ class AudioBufferStream:
 ```
 
 ### 💻 The Zustand HUD Store (`jarvis.store.ts`)
-The entire client context is managed through Zustand. When WebSockets push states, it executes micro-updates to bypass React's standard component reconciliation latency.
+React state is synchronized globally via Zustand slices.
 
 ```typescript
 // Zustand Store slices inside src/renderer/src/stores/jarvis.store.ts
@@ -205,11 +376,9 @@ export const useJarvisStore = create<JarvisStore>((set) => ({
 
 ---
 
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-## ░░ 4. SYSTEM BOOT STRATEGY (INSTALLATION)                         ░░
-## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+## ⚙️ COGNITIVE MATRIX BOOT SEQUENCE (INSTALLATION)
 
-Deploy the system sequentially to prevent port bindings or environment validation failures.
+Perform the deployment steps sequentially to prevent port binding or validation failures.
 
 ```powershell
 # [Phase 1: Clone Repositories]
@@ -217,7 +386,7 @@ git clone https://github.com/Allen73737/astryx-ai-assistant.git
 cd astryx-ai-assistant
 
 # [Phase 2: Configuration]
-# Populate backend/.env using backend/.env.example variables.
+# Copy backend/.env.example to backend/.env and populate your API credentials.
 # Pydantic Settings parses these values into typed memory objects upon launch.
 
 # [Phase 3: Electron Client Build]
