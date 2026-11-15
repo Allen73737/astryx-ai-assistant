@@ -1,337 +1,415 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useJarvisStore, type ConnectionStatus } from '@/stores/jarvis.store'
-import { useWebSocket } from '@/hooks/useWebSocket'
-import { useVoiceCapture } from '@/hooks/useVoiceCapture'
-import { StatusBar } from '@/components/panels/StatusBar'
-import { LeftPanel } from '@/components/panels/LeftPanel'
-import { RightPanel } from '@/components/panels/RightPanel'
-import { BottomBar } from '@/components/panels/BottomBar'
-import { AIOrb } from '@/components/core/AIOrb'
-import { HUDOverlay } from '@/components/core/HUDOverlay'
-import { FaceHUD } from '@/components/core/FaceHUD'
-import { Background } from '@/components/core/Background'
-import { BootSequence } from '@/components/core/BootSequence'
-import { useFaceTracking } from '@/hooks/useFaceTracking'
-import { useAmbientLight } from '@/hooks/useAmbientLight'
-import { useVoiceShortcuts } from '@/hooks/useVoiceShortcuts'
+import { useEffect, useState, useRef } from 'react'
+import './App.css'
 
-function App(): React.JSX.Element {
-  const connectionStatus = useJarvisStore((s) => s.connectionStatus)
-  const setBackendConfig = useJarvisStore((s) => s.setBackendConfig)
-  const isRightExpanded = useJarvisStore((s) => s.isRightExpanded)
-  const pendingPermissionRequest = useJarvisStore((s) => s.pendingPermissionRequest)
-  const stealthMode = useJarvisStore((s) => s.stealthMode)
-  const [initialized, setInitialized] = useState(false)
-  const [booting, setBooting] = useState(true)
-  
-  const hudMode = useJarvisStore((s) => s.hudMode)
-  const activeTheme = useJarvisStore((s) => s.activeTheme)
-  const leftOpen = hudMode === 'full'
-  const rightOpen = hudMode === 'full'
+interface Message {
+  id: string
+  sender: 'user' | 'astryx' | 'tool'
+  text: string
+  toolData?: {
+    tool: string
+    args?: Record<string, any>
+    result?: string
+  }
+  timestamp: string
+}
 
-
-  const orbState = useJarvisStore((s) => s.orbState)
-  const [isVisible, setIsVisible] = useState(true)
-  const loadVoicesFromStorage = useJarvisStore((s) => s.loadVoicesFromStorage)
-
-  /* Initialize backend config from Electron IPC */
-  useEffect(() => {
-    async function init(): Promise<void> {
-      try {
-        if (window.jarvis) {
-          const config = await window.jarvis.getBackendConfig()
-          setBackendConfig(config.httpUrl, config.wsUrl)
-        }
-      } catch (err) {
-        console.warn('Running outside Electron, using defaults', err)
-      }
-      setInitialized(true)
+function App() {
+  const [status, setStatus] = useState<string>('connecting')
+  const [statusDetail, setStatusDetail] = useState<string>('INITIALIZING ASTRYX NEURAL CORE...')
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: 'welcome-1',
+      sender: 'astryx',
+      text: 'Astryx Sovereign Mark IV online. Full computer access granted. Real-time web browsing, system control, and multi-agent reasoning active. Ready for your command, sir.',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
-    init()
-  }, [setBackendConfig])
+  ])
+  const [inputValue, setInputValue] = useState<string>('')
+  const [currentStream, setCurrentStream] = useState<string>('')
+  const [ws, setWs] = useState<WebSocket | null>(null)
+  const [isRecording, setIsRecording] = useState<boolean>(false)
 
-  /* Listen to Global Voice Shortcut */
+  const audioContextRef = useRef<AudioContext | null>(null)
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
+  const chunksRef = useRef<BlobPart[]>([])
+  const messagesEndRef = useRef<HTMLDivElement | null>(null)
+  const streamAccumulatorRef = useRef<string>('')
+
+  // Auto-scroll chat to bottom
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   useEffect(() => {
-    if (window.jarvis && window.jarvis.onVoiceToggle) {
-      return window.jarvis.onVoiceToggle(() => {
-        useJarvisStore.getState().sendWsMessage('manual_voice_toggle', {})
-      })
+    scrollToBottom()
+  }, [messages, currentStream])
+
+  // WebSocket Connection Management
+  useEffect(() => {
+    let socket: WebSocket | null = null
+    let reconnectTimer: NodeJS.Timeout
+
+    const connect = () => {
+      const wsClient = new WebSocket('ws://localhost:8002/ws')
+      socket = wsClient
+
+      wsClient.onopen = () => {
+        setStatus('idle')
+        setStatusDetail('ALL SYSTEMS OPERATIONAL • GOD-MODE READY')
+        setWs(wsClient)
+        setupAudioDetection(wsClient)
+      }
+
+      wsClient.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data)
+
+          if (data.type === 'status') {
+            setStatus(data.payload.startsWith('⚡') ? 'tool' : data.payload)
+            setStatusDetail(data.payload.toUpperCase())
+          } else if (data.type === 'system_ready') {
+            setStatus('idle')
+            setStatusDetail(`ONLINE • ${data.payload.tools_count} TOOLS READY`)
+          } else if (data.type === 'transcription') {
+            const userText = data.payload
+            if (userText) {
+              setMessages((prev) => [
+                ...prev,
+                {
+                  id: `user-${Date.now()}`,
+                  sender: 'user',
+                  text: userText,
+                  timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                }
+              ])
+            }
+          } else if (data.type === 'tool_call') {
+            const { tool, args } = data.payload
+            setStatus('tool')
+            setStatusDetail(`EXECUTING: ${tool}`)
+            setMessages((prev) => [
+              ...prev,
+              {
+                id: `tool-${Date.now()}`,
+                sender: 'tool',
+                text: `Executing ${tool}...`,
+                toolData: { tool, args },
+                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+              }
+            ])
+          } else if (data.type === 'tool_result') {
+            const { tool, result } = data.payload
+            setMessages((prev) =>
+              prev.map((m): Message => {
+                if (m.sender === 'tool' && m.toolData && m.toolData.tool === tool && !m.toolData.result) {
+                  return {
+                    ...m,
+                    text: `Completed ${tool}`,
+                    toolData: {
+                      tool,
+                      args: m.toolData.args,
+                      result: typeof result === 'string' ? result : JSON.stringify(result)
+                    }
+                  }
+                }
+                return m
+              })
+            )
+          } else if (data.type === 'reply_chunk') {
+            streamAccumulatorRef.current += data.payload
+            setCurrentStream(streamAccumulatorRef.current)
+          } else if (data.type === 'reply') {
+            const fullReply = data.payload || streamAccumulatorRef.current
+            streamAccumulatorRef.current = ''
+            setCurrentStream('')
+            setMessages((prev) => [
+              ...prev,
+              {
+                id: `ai-${Date.now()}`,
+                sender: 'astryx',
+                text: fullReply,
+                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+              }
+            ])
+            setStatus('idle')
+            setStatusDetail('READY FOR NEXT DIRECTIVE')
+          }
+        } catch (e) {
+          console.error('WS Parse error', e)
+        }
+      }
+
+      socket.onclose = () => {
+        setStatus('offline')
+        setStatusDetail('CORE BRAIN DISCONNECTED • RETRYING...')
+        reconnectTimer = setTimeout(connect, 3000)
+      }
+
+      socket.onerror = () => {
+        setStatus('offline')
+        socket?.close()
+      }
+    }
+
+    connect()
+
+    return () => {
+      clearTimeout(reconnectTimer)
+      socket?.close()
+      if (audioContextRef.current) audioContextRef.current.close()
     }
   }, [])
 
-  /* Load persisted voice profiles from localStorage */
-  useEffect(() => {
-    loadVoicesFromStorage()
-  }, [loadVoicesFromStorage])
+  // Audio Detection & Clap Trigger
+  const setupAudioDetection = async (socket: WebSocket) => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
-  /* Connect WebSocket after initialization */
-  useWebSocket()
+      mediaRecorderRef.current = new MediaRecorder(stream)
+      mediaRecorderRef.current.ondataavailable = (e) => chunksRef.current.push(e.data)
+      mediaRecorderRef.current.onstop = async () => {
+        const blob = new Blob(chunksRef.current, { type: 'audio/webm' })
+        chunksRef.current = []
 
-  /* Start browser-side voice capture (mic via Web Audio API) */
-  useVoiceCapture()
-  
-  /* Start face tracking hook */
-  useFaceTracking()
-
-  /* Keyboard shortcuts for quick voice switching */
-  useVoiceShortcuts()
-
-  /* Ambient light adaptation based on system time */
-  const glowIntensity = useAmbientLight()
-
-  useEffect(() => {
-    // Ghost UI Reveal Trigger
-    if (orbState === 'listening' || orbState === 'speaking' || orbState === 'processing') {
-      setIsVisible(true)
-    }
-  }, [orbState])
-
-  if (booting) {
-    return <BootSequence onComplete={() => setBooting(false)} />
-  }
-
-  if (!initialized) {
-    return <LoadingScreen />
-  }
-
-  // If invisible, render nothing so it doesn't block clicks (actually just opacity 0)
-  if (!isVisible) {
-    return <div className="w-full h-full bg-transparent" />
-  }
-
-  return (
-        <div 
-      className={`relative w-[100vw] h-[100vh] overflow-hidden transition-all duration-1000 bg-astryx-obsidian theme-${activeTheme}`} 
-      id="astryx-root"
-    >
-      <Background />
-
-      {/* Titlebar drag region */}
-      <div className="titlebar-drag absolute top-0 left-0 right-0 z-50" style={{ height: 'clamp(1.5rem, 3vw, 2.25rem)' }} />
-
-      {/* Minimize and Close Buttons manually injected into HUD */}
-      <div className="absolute flex gap-2 lg:gap-3 z-[100]" style={{ top: 'clamp(0.75rem, 2vw, 1.5rem)', right: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
-        <button 
-          onClick={() => {
-            if (window.jarvis) window.jarvis.minimize()
-          }}
-          className="rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center text-astryx-text transition-colors backdrop-blur-xl border border-white/20"
-          style={{ width: 'clamp(1.75rem, 3vw, 2.5rem)', height: 'clamp(1.75rem, 3vw, 2.5rem)' }}
-          title="Minimize"
-        >
-          ─
-        </button>
-        <button 
-          onClick={() => {
-            setIsVisible(false)
-            if (window.jarvis) window.jarvis.close()
-          }}
-          className="rounded-full bg-white/5 hover:bg-white/20 flex items-center justify-center text-astryx-text transition-colors backdrop-blur-xl border border-white/20"
-          style={{ width: 'clamp(1.75rem, 3vw, 2.5rem)', height: 'clamp(1.75rem, 3vw, 2.5rem)' }}
-          title="Close"
-        >
-          ✕
-        </button>
-      </div>
-
-      {/* HUD overlay (corner brackets, scan lines) */}
-      <HUDOverlay />
-      
-      {/* Dynamic AR Face HUD overlay */}
-      <FaceHUD />
-
-      {/* Main content grid */}
-      <div className="relative z-10 w-full h-full flex flex-col" style={{ padding: 'var(--status-padding)' }}>
-        {/* Status bar */}
-        <StatusBar />
-
-        {/* Center area: Left panel + Orb + Right panel */}
-        <div className={`flex-1 flex items-stretch min-h-0 relative transition-all duration-500 ${isRightExpanded ? 'px-0 gap-0' : ''}`} style={{ marginTop: 'clamp(0.5rem, 1.5vw, 1rem)', gap: isRightExpanded ? '0' : 'var(--panel-gap)', paddingLeft: isRightExpanded ? '0' : '0', paddingRight: isRightExpanded ? '0' : '0' }}>
-          
-          {/* Left panel */}
-          <motion.div 
-            initial={{ width: 0, opacity: 0, scale: 0.95 }}
-            animate={{ 
-              width: leftOpen && !isRightExpanded ? 'var(--panel-width)' : 0, 
-              opacity: leftOpen && !isRightExpanded ? 1 : 0,
-              scale: leftOpen && !isRightExpanded ? 1 : 0.95,
-            }}
-            transition={{ type: "spring", stiffness: 250, damping: 35, mass: 1 }}
-            className="flex-shrink-0 overflow-hidden"
-          >
-            <div className="w-full h-full opacity-40 hover:opacity-100 transition-opacity duration-500">
-              <LeftPanel />
-            </div>
-          </motion.div>
-
-          {/* Center orb */}
-          <div className={`flex-1 flex items-center justify-center relative z-10 transition-all duration-500 ${isRightExpanded ? 'hidden' : ''}`}>
-            <AIOrb />
-          </div>
-
-          {/* Right panel */}
-          <motion.div 
-            initial={{ width: 0, opacity: 0, scale: 0.95 }}
-            animate={{ 
-              width: rightOpen ? (isRightExpanded ? 'var(--panel-width-expanded)' : 'var(--panel-width)') : 0, 
-              opacity: rightOpen ? 1 : 0,
-              scale: rightOpen ? 1 : 0.95,
-            }}
-            transition={{ type: "spring", stiffness: 250, damping: 35, mass: 1, delay: 0.05 }}
-            className="flex-shrink-0 overflow-hidden"
-          >
-            <div className="w-full h-full opacity-40 hover:opacity-100 transition-opacity duration-500">
-              <RightPanel />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom command bar */}
-        <div style={{ marginTop: 'clamp(0.75rem, 2vw, 2rem)' }}>
-          <BottomBar />
-        </div>
-      </div>
-
-      {/* Stealth Mode Indicator Overlay */}
-      {stealthMode && (
-        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 z-[9999] bg-[#001224]/80 border border-[#00e5ff]/30 px-3 py-1 rounded-full font-mono text-[7px] text-[#00e5ff] tracking-[0.25em] flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,229,255,0.15)] pointer-events-none">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-ping" />
-          <span>STEALTH RECORD SHIELD ENGAGED (EXCLUDED FROM EXTERNAL CAPTURE)</span>
-        </div>
-      )}
-
-      {/* Webcam permission gateway modal */}
-      {pendingPermissionRequest && (
-        <WebcamPermissionDialog
-          sessionId={pendingPermissionRequest.sessionId}
-          onResolve={(allowed) => {
-            useJarvisStore.getState().sendWsMessage('webcam_permission_response', {
-              session_id: pendingPermissionRequest.sessionId,
-              allowed
-            })
-            useJarvisStore.getState().setPendingPermissionRequest(null)
-          }}
-        />
-      )}
-    </div>
-  )
-}
-
-/* ═══════════════════ WEBCAM GATEWAY DIALOG ═══════════════════ */
-
-function WebcamPermissionDialog({ sessionId, onResolve }: { sessionId: string, onResolve: (allowed: boolean) => void }): React.JSX.Element {
-  const [countdown, setCountdown] = useState(30)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer)
-          onResolve(false)
-          return 0
+        const reader = new FileReader()
+        reader.readAsDataURL(blob)
+        reader.onloadend = () => {
+          const base64Audio = reader.result?.toString().split(',')[1]
+          if (socket.readyState === WebSocket.OPEN && base64Audio) {
+            socket.send(JSON.stringify({ type: 'audio_chunk', payload: base64Audio }))
+          }
         }
-        return prev - 1
-      })
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [onResolve])
+      }
 
-  return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-[99999] pointer-events-auto">
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        className="panel-luxury p-8 w-[380px] text-center space-y-6 bg-gradient-to-b from-[#001224] to-[#00050d] border border-[#00e5ff]/50 shadow-[0_0_50px_rgba(0,229,255,0.25)]"
-      >
-        <div className="flex justify-center">
-          <div className="w-14 h-14 rounded-full border border-[#00e5ff] flex items-center justify-center animate-pulse shadow-[0_0_15px_rgba(0,229,255,0.25)]">
-            <span className="text-[#00e5ff] text-xl">🔒</span>
-          </div>
-        </div>
-        
-        <div className="space-y-2">
-          <h3 className="font-display text-md tracking-[0.2em] text-white">WEBCAM AUTHORIZATION GATE</h3>
-          <p className="font-mono text-[9px] text-[#00a8cc] tracking-widest leading-relaxed">
-            ASTRYX REQUESTS TEMPORARY ACCESS TO CAMERA SURVEILLANCE FEED FOR FACIAL EMOTION SCANNING.
-          </p>
-        </div>
+      const audioCtx = new AudioContext()
+      audioContextRef.current = audioCtx
+      const analyser = audioCtx.createAnalyser()
+      const source = audioCtx.createMediaStreamSource(stream)
+      source.connect(analyser)
 
-        {/* Countdown timer progress bar */}
-        <div className="space-y-1">
-          <div className="flex justify-between font-mono text-[8px] text-white/50 tracking-wider">
-            <span>GATE DISMISS IN</span>
-            <span>{countdown}s</span>
-          </div>
-          <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-[#00e5ff] transition-all duration-1000 ease-linear"
-              style={{ width: `${(countdown / 30) * 100}%` }}
-            />
-          </div>
-        </div>
+      analyser.fftSize = 256
+      const bufferLength = analyser.frequencyBinCount
+      const dataArray = new Uint8Array(bufferLength)
 
-        <div className="flex gap-4 pt-2">
-          <button
-            onClick={() => onResolve(false)}
-            className="flex-1 py-2 rounded border border-red-500/30 hover:border-red-500 bg-red-950/10 hover:bg-red-950/30 text-red-400 font-mono text-[10px] tracking-widest uppercase transition-all cursor-pointer"
-          >
-            DENY ACCESS
-          </button>
-          <button
-            onClick={() => onResolve(true)}
-            className="flex-1 py-2 rounded border border-emerald-500/30 hover:border-emerald-500 bg-emerald-950/10 hover:bg-emerald-950/30 text-emerald-400 font-mono text-[10px] tracking-widest uppercase transition-all cursor-pointer shadow-[0_0_15px_rgba(16,185,129,0.25)]"
-          >
-            APPROVE
-          </button>
-        </div>
-      </motion.div>
-    </div>
-  )
-}
+      let lastClapTime = 0
 
-/* ═══════════════════ LOADING SCREEN ═══════════════════ */
+      const detectClap = () => {
+        analyser.getByteFrequencyData(dataArray)
+        let sum = 0
+        for (let i = 0; i < bufferLength; i++) {
+          sum += dataArray[i]
+        }
+        const average = sum / bufferLength
 
-function LoadingScreen(): React.JSX.Element {
-  return (
-    <div className="w-full h-full flex items-center justify-center bg-astryx-bg">
-      <div className="text-center">
-        <div className="w-16 h-16 border-t-2 border-astryx-cyan rounded-full animate-spin mx-auto mb-4" />
-        <div className="font-mono text-xs text-astryx-cyan tracking-widest uppercase">
-          Initializing ASTRYX...
-        </div>
-      </div>
-    </div>
-  )
-}
-
-/* ═══════════════════ CONNECTION OVERLAY ═══════════════════ */
-
-function ConnectionOverlay({ status }: { status: ConnectionStatus }): React.JSX.Element {
-  const labels: Record<ConnectionStatus, string> = {
-    disconnected: 'Backend Disconnected',
-    connecting: 'Connecting to Backend...',
-    connected: 'Connected',
-    error: 'Connection Error'
+        // Clap detection threshold
+        if (average > 105 && !isRecording) {
+          const now = Date.now()
+          if (now - lastClapTime > 2500) {
+            lastClapTime = now
+            toggleRecording()
+          }
+        }
+        requestAnimationFrame(detectClap)
+      }
+      detectClap()
+    } catch (err) {
+      console.warn('Microphone access unavailable or denied', err)
+    }
   }
 
-  const colors: Record<ConnectionStatus, string> = {
-    disconnected: 'text-astryx-amber',
-    connecting: 'text-astryx-cyan',
-    connected: 'text-astryx-emerald',
-    error: 'text-astryx-red'
+  const toggleRecording = () => {
+    if (isRecording) {
+      if (mediaRecorderRef.current?.state === 'recording') {
+        mediaRecorderRef.current.stop()
+      }
+      setIsRecording(false)
+      setStatus('thinking')
+      setStatusDetail('PROCESSING SPEECH...')
+    } else {
+      if (!mediaRecorderRef.current) return
+      chunksRef.current = []
+      mediaRecorderRef.current.start()
+      setIsRecording(true)
+      setStatus('listening')
+      setStatusDetail('LISTENING TO YOUR VOICE...')
+
+      // Auto stop after 7 seconds max
+      setTimeout(() => {
+        if (mediaRecorderRef.current?.state === 'recording') {
+          mediaRecorderRef.current.stop()
+          setIsRecording(false)
+          setStatus('thinking')
+          setStatusDetail('ANALYZING AUDIO...')
+        }
+      }, 7000)
+    }
   }
 
+  const handleSendMessage = (textToSend?: string) => {
+    const query = (textToSend || inputValue).trim()
+    if (!query || !ws || ws.readyState !== WebSocket.OPEN) return
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: `user-${Date.now()}`,
+        sender: 'user',
+        text: query,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }
+    ])
+
+    ws.send(JSON.stringify({ type: 'chat', payload: { text: query, lang: 'en' } }))
+    setInputValue('')
+    setStatus('thinking')
+    setStatusDetail('REASONING & ORCHESTRATING...')
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSendMessage()
+    }
+  }
+
+  const handleQuickAction = (prompt: string) => {
+    handleSendMessage(prompt)
+  }
+
+  const minimizeWindow = () => window.api?.minimize?.()
+  const closeWindow = () => window.api?.close?.()
+
   return (
-    <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-50">
-      <div className="panel-hud px-6 py-3 flex items-center gap-3">
-        <div className={`status-dot ${
-          status === 'connecting' ? 'status-dot-swapping' :
-          status === 'error' ? 'status-dot-error' :
-          'status-dot-swapping'
-        }`} />
-        <span className={`font-mono text-xs tracking-wider uppercase ${colors[status]}`}>
-          {labels[status]}
-        </span>
+    <div className="astryx-container">
+      {/* Background Cybernetic Ambient Glows */}
+      <div className={`ambient-glow ${status}`}></div>
+      <div className="hud-grid-overlay"></div>
+
+      <div className="astryx-panel">
+        {/* HUD Top Bar with Window Controls */}
+        <header className="hud-header">
+          <div className="brand-section">
+            <div className={`core-indicator ${status}`}></div>
+            <div className="brand-titles">
+              <h1 className="brand-logo">ASTRYX <span className="version-pill">MARK IV</span></h1>
+              <span className="brand-subtitle">SOVEREIGN AI • FULL COMPUTER ACCESS • WEB CONNECTED</span>
+            </div>
+          </div>
+
+          <div className="hud-status-badge">
+            <span className={`status-dot ${status}`}></span>
+            <span className="status-label">{status.toUpperCase()}</span>
+          </div>
+
+          <div className="window-controls no-drag">
+            <button className="win-btn minimize" onClick={minimizeWindow} title="Minimize">
+              ─
+            </button>
+            <button className="win-btn close" onClick={closeWindow} title="Close">
+              ✕
+            </button>
+          </div>
+        </header>
+
+        {/* Central Holographic Reactor Orb */}
+        <div className="reactor-zone no-drag" onClick={toggleRecording}>
+          <div className={`reactor-orb ${status} ${isRecording ? 'recording' : ''}`}>
+            <div className="reactor-ring outer"></div>
+            <div className="reactor-ring middle"></div>
+            <div className="reactor-core">
+              <span className="core-glyph">{isRecording ? '🎙️' : status === 'tool' ? '⚡' : '◈'}</span>
+            </div>
+          </div>
+          <p className="status-detail-text">{statusDetail}</p>
+        </div>
+
+        {/* Chat & Output Stream Panel */}
+        <div className="conversation-display">
+          {messages.map((msg) => (
+            <div key={msg.id} className={`message-bubble ${msg.sender}`}>
+              <div className="bubble-header">
+                <span className="sender-tag">
+                  {msg.sender === 'user' ? 'YOU' : msg.sender === 'astryx' ? 'ASTRYX' : '⚡ TOOL'}
+                </span>
+                <span className="message-time">{msg.timestamp}</span>
+              </div>
+              <div className="bubble-content">
+                {msg.sender === 'tool' && msg.toolData ? (
+                  <div className="tool-card">
+                    <div className="tool-name">⚡ {msg.toolData.tool}</div>
+                    {msg.toolData.args && (
+                      <div className="tool-args">{JSON.stringify(msg.toolData.args)}</div>
+                    )}
+                    {msg.toolData.result && (
+                      <div className="tool-result-preview">{msg.toolData.result}</div>
+                    )}
+                  </div>
+                ) : (
+                  <p className="bubble-text">{msg.text}</p>
+                )}
+              </div>
+            </div>
+          ))}
+
+          {/* Live Streaming Token Preview */}
+          {currentStream && (
+            <div className="message-bubble astryx streaming">
+              <div className="bubble-header">
+                <span className="sender-tag">ASTRYX (LIVE)</span>
+              </div>
+              <div className="bubble-content">
+                <p className="bubble-text">{currentStream}<span className="stream-cursor">▌</span></p>
+              </div>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Quick Action Directives */}
+        <div className="quick-actions no-drag">
+          <button className="action-pill" onClick={() => handleQuickAction('Search the web for the latest breakthrough in artificial intelligence')}>
+            🌐 Search Web
+          </button>
+          <button className="action-pill" onClick={() => handleQuickAction('Give me a full system diagnostic report of CPU, RAM, and storage')}>
+            💻 System Specs
+          </button>
+          <button className="action-pill" onClick={() => handleQuickAction('Fetch the latest breaking technology news')}>
+            📰 Tech News
+          </button>
+          <button className="action-pill" onClick={() => handleQuickAction('List all active windows and top running processes')}>
+            🪟 Windows & Tasks
+          </button>
+          <button className="action-pill" onClick={() => handleQuickAction('What is the current weather forecast?')}>
+            🌦️ Weather
+          </button>
+        </div>
+
+        {/* Command Palette & Text Input Bar */}
+        <footer className="command-bar no-drag">
+          <button
+            className={`mic-button ${isRecording ? 'recording' : ''}`}
+            onClick={toggleRecording}
+            title={isRecording ? 'Stop Recording' : 'Voice Input'}
+          >
+            {isRecording ? '⏹' : '🎙'}
+          </button>
+
+          <input
+            type="text"
+            className="command-input"
+            placeholder="Ask Astryx anything, search the internet, or issue any computer command..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+
+          <button
+            className="send-button"
+            onClick={() => handleSendMessage()}
+            disabled={!inputValue.trim() || status === 'offline'}
+          >
+            <span>TRANSMIT</span> ➔
+          </button>
+        </footer>
       </div>
     </div>
   )

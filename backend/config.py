@@ -1,69 +1,36 @@
-"""JARVIS-X Backend Configuration"""
-
-from __future__ import annotations
+"""Astryx Backend Configuration — Ultra-Advanced AI & OS Integration"""
 
 import os
 from pathlib import Path
-from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
 
+# Load local .env or fallback to Jarvis .env
+BACKEND_DIR = Path(__file__).resolve().parent
+load_dotenv(BACKEND_DIR / ".env")
+if not os.environ.get("GROQ_API_KEY"):
+    load_dotenv(Path("C:/My_Project/Jarvis/backend/.env"))
 
-class Settings(BaseSettings):
-    """Application settings loaded from environment variables."""
+# ── Security & Network ──
+# LOCAL_ONLY = False unlocks internet search, live web browsing, real-time scraping, and cloud hybrid AI
+LOCAL_ONLY = os.environ.get("LOCAL_ONLY", "false").lower() == "true"
 
-    # ── Paths ──
-    BASE_DIR: Path = Path(__file__).resolve().parent
-    DATA_DIR: Path = BASE_DIR / "data"
-    MODELS_DIR: Path = BASE_DIR.parent / "models"
+# ── AI Endpoints ──
+LM_STUDIO_URL = os.environ.get("LM_STUDIO_URL", "http://localhost:1234/v1/chat/completions")
+LM_STUDIO_MODELS_URL = os.environ.get("LM_STUDIO_MODELS_URL", "http://localhost:1234/v1/models")
+OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api")
 
-    # ── Local Inference ──
-    LOCAL_MODELS_DIR: Path = Path.home() / ".lmstudio" / "models"
+# ── Ultra-Fast Groq Cloud LLM (Instant failover / Primary high-intelligence engine) ──
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY") or os.environ.get("JARVIS_GROQ_API_KEY", "")
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODELS = [
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-120b",
+    "openai/gpt-oss-20b"
+]
 
-    # ── Model Roster ──
-    MODEL_CONVERSATION: str = "qwen2.5-0.5b-instruct-q4_k_m"
-    MODEL_CODING: str = "Llama-3.2-1B-Instruct-Q4_K_M"
-    MODEL_ROUTER: str = "qwen2.5-0.5b-instruct-q4_k_m"
-    MODEL_VISION: str = "Qwen2.5-VL-7B-Instruct-Q4_K_M"
-    MODEL_EMBEDDINGS: str = "nomic-embed-text-v1.5.Q4_K_M"
-    DEFAULT_MODEL: str = "qwen2.5-0.5b-instruct-q4_k_m"
-
-    # ── Groq API ──
-    GROQ_API_KEY: str = ""
-    GROQ_MODEL_CONVERSATION: str = "llama-3.1-8b-instant"
-    GROQ_MODEL_CODING: str = "llama-3.3-70b-versatile"
-    GROQ_MODEL_ROUTER: str = "llama-3.1-8b-instant"
-
-    # ── Server ──
-    HOST: str = "0.0.0.0"
-    PORT: int = 8002
-    CORS_ORIGINS: list[str] = ["http://localhost:5173", "http://localhost:5174"]
-
-    # ── Memory ──
-    CHROMA_PERSIST_DIR: str = str(BASE_DIR / "data" / "chroma")
-    SQLITE_DB_PATH: str = str(BASE_DIR / "data" / "jarvis.db")
-
-    # ── Voice ──
-    WAKE_WORD_MODEL: str = "hey_jarvis"
-    STT_MODEL: str = "tiny"
-    TTS_VOICE: str = "af_heart"
-    VAD_SENSITIVITY: int = 7  # 1 (most sensitive) to 10 (most strict)
-
-    # ── Unsplash API (for PPT image downloads) ──
-    # Get your own keys: https://unsplash.com/developers
-    UNSPLASH_ACCESS_KEY: str = "U7nqaPYJPn3GuRN0V35a4yF_587epAih8Ub9IY2j4yo"
-    UNSPLASH_SECRET_KEY: str = "G-La4-2W-gYT0SGakN_hu3HmcL1oifGSRXbhG_Vsc-o"  # Reserved for future OAuth use
-
-    # ── Swap Manager ──
-    MODEL_SWAP_COOLDOWN_S: int = 30
-    MODEL_SWAP_TIMEOUT_S: int = 30
-
-    class Config:
-        env_prefix = "JARVIS_"
-        env_file = ".env"
-        extra = "ignore"
-
-
-settings = Settings()
-
-# Ensure data directories exist
-os.makedirs(settings.DATA_DIR, exist_ok=True)
-os.makedirs(settings.CHROMA_PERSIST_DIR, exist_ok=True)
+# ── System Permissions ──
+FULL_COMPUTER_ACCESS = True
+ALLOW_COMMAND_EXECUTION = True
+ALLOW_PYTHON_EXECUTION = True
+ALLOW_FILE_SYSTEM_ACCESS = True
+ALLOW_WEB_BROWSING = True

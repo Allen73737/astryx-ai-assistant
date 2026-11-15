@@ -1,17 +1,56 @@
+# Node dependencies
 node_modules/
+
+# Python Virtual Environments
+backend/.venv/
+.venv/
+venv/
+env/
+ENV/
+
+# Build & output directories
 dist/
 out/
-.env
-.DS_Store
-backend/venv/
-backend/.venv/
-backend/__pycache__/
-*.pyc
-*.pyo
-*.pyd
+build/
+*.egg-info/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
 .pytest_cache/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-coverage/
-nul
+
+# Environment variables & secrets
+.env
+.env.*
+backend/.env
+!backend/.env.example
+
+# Memory databases & local vector store
+backend/memory_data/
+memory_data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Audio cache & screenshots
+*.mp3
+*.wav
+*.webm
+*.png
+*.jpg
+*.jpeg
+!resources/*.png
+!build/*.png
+
+# Logs & Audit
+*.log*
+astryx_audit.log
+logs/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.eslintcache
